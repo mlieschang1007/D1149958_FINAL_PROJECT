@@ -4,73 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chicken Prices</title>
-    <link rel="stylesheet" href="stylesheets/style.css"> <!-- 使用正確的相對路徑 -->
+    <link rel="stylesheet" href="stylesheets/style.css">
+
 
 </head>
 <body>
-<h1>近兩年白雞肉價格查詢</h1>
-<div class="form-group">
-    <label for="start_year">開始年份</label>
-    <select id="start_year">
-        <option value="2022">2022</option>
-        <option value="2023">2023</option>
-    </select>
-</div>
-<div class="form-group">
-    <label for="start_month">開始月份</label>
-    <select id="start_month">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-    </select>
-</div>
-<div class="form-group">
-    <label for="end_year">結束年份</label>
-    <select id="end_year">
-        <option value="2022">2022</option>
-        <option value="2023">2023</option>
-    </select>
-</div>
-<div class="form-group">
-    <label for="end_month">結束月份</label>
-    <select id="end_month">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-    </select>
-</div>
-<button id="fetchDataButton">查詢價格</button>
-<table>
-    <thead>
-    <tr>
-        <th>年份</th>
-        <th>月份</th>
-        <th>價錢[單位：元/台斤]</th>
-    </tr>
-    </thead>
-    <tbody id="priceTableBody">
-    </tbody>
-</table>
 
+
+<a href="https://www.naif.org.tw/infoFowlsDaily.aspx?frontTitleMenuID=37&frontMenuID=157" target="_blank" class="top-left-link">點擊查看更多消息</a>
+<a href="https://kmweb.moa.gov.tw/theme_data.php?theme=news&sub_theme=variety&id=54852" target="_blank" class="top-left-link_2">白肉雞介紹</a>
+
+<div class="container">
+    <h1>近兩年白肉雞價格查詢</h1>
+    <div class="form-group">
+        <label for="start_year">開始年份</label>
+        <select id="start_year">
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="start_month">開始月份</label>
+        <select id="start_month">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="end_year">結束年份</label>
+        <select id="end_year">
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="end_month">結束月份</label>
+        <select id="end_month">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+    </div>
+    <button id="fetchDataButton">查詢價格</button>
+    <table>
+        <thead>
+        <tr>
+            <th>年份</th>
+            <th>月份</th>
+            <th>價錢[單位：元/台斤]</th>
+        </tr>
+        </thead>
+        <tbody id="priceTableBody">
+        </tbody>
+    </table>
+    <canvas id="chickenPriceChart" width="400" height="200"></canvas>
+</div>
 <script>
+
+
+
     document.getElementById('fetchDataButton').addEventListener('click', fetchData);
 
     function fetchData() {
@@ -83,13 +94,19 @@
             .then(response => response.json())
             .then(data => {
                 const tbody = document.getElementById('priceTableBody');
-                tbody.innerHTML = ''; // 清空之前的數據
+                tbody.innerHTML = '';
                 data.forEach(item => {
                     const row = document.createElement('tr');
+
+
+                    ///幫我把下面數據以時間為橫軸 價格為縱軸 繪製折線圖
+
+
+
                     row.innerHTML = `
-                            <td>${item.year}</td>
-                            <td>${item.month}</td>
-                            <td>${item.price}</td>
+                            <td style="background-color: white;">${item.year}</td>
+                            <td style="background-color: white;">${item.month}</td>
+                            <td style="background-color: white;">${item.price}</td>
                         `;
                     tbody.appendChild(row);
                 });

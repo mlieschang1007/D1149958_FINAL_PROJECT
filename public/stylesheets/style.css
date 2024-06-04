@@ -1,19 +1,106 @@
-/* styles.css */
+body {
+  background-image: url('../images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.7); /* 半透明黑色背景 */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+}
+
+.form-group {
+  margin: 20px 0;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+}
+
+select {
+  padding: 5px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+.top-left-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #006fff;
+  text-decoration: underline;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 5px;
+  border-radius: 5px;
+}
+.top-left-link_2 {
+  position: absolute;
+  top: 45px;
+  left: 10px;
+  color: #006fff;
+  text-decoration: underline;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 5px;
+  border-radius: 5px;
+}
+
 table {
-  width: 100%;
+  width: 80%;
+  margin: 20px auto;
   border-collapse: collapse;
-  background-color: white; /* 將表格背景色設置為白色 */
+  background: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+  color: black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
 }
 
 th {
-  padding: 8px;
-  text-align: left;
-  background-color: #f2f2f2;
-  border-bottom: 1px solid #ddd;
-}
-
-td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+  background-color: #4CAF50;
+  color: white;
 }
